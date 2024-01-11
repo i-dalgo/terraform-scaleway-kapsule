@@ -1,9 +1,10 @@
 resource "scaleway_k8s_cluster" "this" {
-  type        = var.cluster_type
-  name        = var.cluster_name
-  description = var.cluster_description
-  version     = var.kubernetes_version
-  cni         = var.cluster_type == "multicloud" ? "kilo" : var.cni_plugin
+  type                = var.cluster_type
+  name                = var.cluster_name
+  description         = var.cluster_description
+  version             = var.kubernetes_version
+  cni                 = var.cluster_type == "multicloud" ? "kilo" : var.cni_plugin
+  private_network_id  = var.private_network_id
   tags        = distinct(compact(concat(var.cluster_tags, var.tags)))
 
   autoscaler_config {
