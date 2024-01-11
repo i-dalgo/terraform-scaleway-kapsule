@@ -3,6 +3,11 @@ variable "cluster_name" {
   description = "The name for the Kubernetes cluster"
 }
 
+variable "cluster_private_network_id" {
+  type        = string
+  description = "The ID of the Private Network for the Kubernetes cluster"
+}
+
 variable "cluster_type" {
   description = "The type of cluster"
   type        = string
